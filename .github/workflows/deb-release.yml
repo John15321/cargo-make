@@ -8,7 +8,6 @@ env:
 jobs:
   release-deb:
     name: Build and release a .deb package
-    needs: build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
