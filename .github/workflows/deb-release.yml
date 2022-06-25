@@ -24,10 +24,11 @@ jobs:
       run: cargo deb
     - name: Upload .deb package
     # target/debian/cargo-make_${{ github.ref }}_amd64.deb
+    # cargo-make_0.35.13_arm64.deb
       uses: svenstaro/upload-release-action@v1-release
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: 'target/debian/cargo-make_${{ github.ref }}_amd64.deb'
+        file: 'target/debian/cargo-make_${{GITHUB_REF##*/}}_amd64.deb'
         tag: ${{ github.ref }}
         overwrite: true
         file_glob: true
